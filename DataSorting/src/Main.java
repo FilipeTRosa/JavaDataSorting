@@ -33,6 +33,7 @@ public class Main {
             long tempoFim = System.nanoTime();
             System.out.println("Quick Sort: " + (tempoFim - tempoInicio) + " ns");
 
+            /*
             // Testes específicos para Counting, Radix e Bucket Sort
             int[] arrayCountingSort = Arrays.stream(aleatorio).mapToInt(Integer::intValue).toArray();
             tempoInicio = System.nanoTime();
@@ -51,7 +52,7 @@ public class Main {
             Ordenadores.bucketSort(arrayBucketSort);
             tempoFim = System.nanoTime();
             System.out.println("Bucket Sort: " + (tempoFim - tempoInicio) + " ns");
-
+            */
             System.out.println();
         }
     }
@@ -92,13 +93,4 @@ public class Main {
         for (int i = 0; i < tamanho; i++) array[i] = valorRepetido;
         return array;
     }
-    }
-
-
-
-
-//-------------------################# ################---------------------------
-
-
-
 }
