@@ -208,7 +208,7 @@ public class Ordenadores {
     }
 
     // Bucket Sort
-    public static void bucketSort(float[] array) {
+    public static void bucketSort(Float[] array) {
         int n = array.length;
         if (n <= 0) return;
 
