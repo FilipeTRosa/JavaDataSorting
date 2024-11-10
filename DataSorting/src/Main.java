@@ -53,7 +53,7 @@ public class Main {
             );
 
             // Executar cada algoritmo para cada vetor e imprimir o resultado
-            if(tamanho == 10) { //executa este bloco somente quanto o tamanho é 10
+            if (tamanho == 10) { //executa este bloco somente quanto o tamanho é 10
                 try (BufferedWriter writer = new BufferedWriter(new FileWriter("resultados_ordenacao.txt"))) {
                     // Executar cada algoritmo para cada vetor e gravar o resultado no arquivo
                     for (int i = 0; i < algoritmos.size(); i++) {
@@ -125,14 +125,12 @@ public class Main {
         }
 
         System.out.println("Resultados salvos em 'resultados.csv'");
-    }
-
 
 
 
 
         // Execução dos testes para cada tamanho
-        /*for (int tamanho : tamanhos) {
+        for (int tamanho : tamanhos) {
             System.out.println("Testando com array de tamanho " + tamanho);
 
             // Geração dos arrays de teste
@@ -141,46 +139,39 @@ public class Main {
             Integer[] aleatorio = gerarArrayAleatorio(tamanho);
             Integer[] repetidos = gerarArrayRepetidos(tamanho);
 
-            // Teste de cada algoritmo com cada array
-            // Fazer aqui um for para executar 30 vezes cada teste
-            //for(int i = 0; i < 30; i++){}
-            testarAlgoritmo("Bubble Sort", aleatorio, Ordenadores::bubbleSort);
-            testarAlgoritmo("Insertion Sort", aleatorio, Ordenadores::insertionSort);
-            testarAlgoritmo("Selection Sort", aleatorio, Ordenadores::selectionSort);
-            testarAlgoritmo("Shell Sort", aleatorio, Ordenadores::shellSort);
-            testarAlgoritmo("Heap Sort", aleatorio, Ordenadores::heapSort);
-            testarAlgoritmo("Merge Sort", aleatorio, Ordenadores::mergeSort);
-
-            /*
+            // Testar QuickSort
             Integer[] arrayQuickSort = Arrays.copyOf(aleatorio, aleatorio.length);
             long tempoInicio = System.nanoTime();
             Ordenadores.quickSort(arrayQuickSort, 0, arrayQuickSort.length - 1);
             long tempoFim = System.nanoTime();
             System.out.println("Quick Sort: " + (tempoFim - tempoInicio) + " ns");
 
-
-            // Testes específicos para Counting, Radix e Bucket Sort
+            // Testar CountingSort (int[])
             int[] arrayCountingSort = Arrays.stream(aleatorio).mapToInt(Integer::intValue).toArray();
             tempoInicio = System.nanoTime();
             Ordenadores.countingSort(arrayCountingSort);
             tempoFim = System.nanoTime();
             System.out.println("Counting Sort: " + (tempoFim - tempoInicio) + " ns");
 
+            // Testar RadixSort (int[])
             int[] arrayRadixSort = Arrays.stream(aleatorio).mapToInt(Integer::intValue).toArray();
             tempoInicio = System.nanoTime();
             Ordenadores.radixSort(arrayRadixSort);
             tempoFim = System.nanoTime();
             System.out.println("Radix Sort: " + (tempoFim - tempoInicio) + " ns");
 
-            Float[] arrayBucketSort = new Random().ints(tamanho, 0, 100).mapToObj(i -> i / 100.0f).toArray(Float[]::new);
+            // Testar BucketSort (Float[])
+            Float[] arrayBucketSort = new Random().ints(tamanho, 0, 100)
+                    .mapToObj(i -> i / 100.0f)
+                    .toArray(Float[]::new);
             tempoInicio = System.nanoTime();
             Ordenadores.bucketSort(arrayBucketSort);
             tempoFim = System.nanoTime();
             System.out.println("Bucket Sort: " + (tempoFim - tempoInicio) + " ns");
 
             System.out.println();
-        }*/
-
+        }
+    }
     // Função para medir o tempo de execução de um algoritmo
     private static <T extends Comparable<T>> void testarAlgoritmo(String nome, T[] array, Consumer<T[]> algoritmo) {
         T[] arrayCopia = Arrays.copyOf(array, array.length);
