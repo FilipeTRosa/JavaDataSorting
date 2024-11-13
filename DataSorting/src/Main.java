@@ -6,11 +6,13 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         // Tamanhos dos arrays para teste
-        int[] tamanhos = {10, 100, 1000, 10000};
-        int numExecucoes = 30;
+        int[] tamanhos = {10};
+        int numExecucoes = 1;
 
         // Nomes dos algoritmos de ordenação
-        String[] nomesAlgoritmos = {"Bubble Sort", "Insertion Sort", "Selection Sort","Shell Sort", "Heap Sort", "Merge Sort"};
+        String[] nomesAlgoritmos = {"Bubble Sort", "Insertion Sort", "Selection Sort",
+                "Shell Sort", "Heap Sort", "Merge Sort",
+                "Quick Sort", "Counting Sort", "Radix Sort", "Bucket Sort"};
 
         // Criar o arquivo CSV para os resultados
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("resultados.csv"))) {
@@ -27,17 +29,15 @@ public class Main {
                 Integer[] aleatorio = gerarArrayAleatorio(tamanho);
                 Integer[] repetidos = gerarArrayRepetidos(tamanho);
 
-
-
                 // ########### TERMINA TESTE DE CORRETUDE ################ //
                 if (tamanho == 10) { // Executa este bloco somente quando o tamanho é 10
                     try (BufferedWriter writerTeste = new BufferedWriter(new FileWriter("resultados_ordenacao.txt"))) {
                         // Nome dos algoritmos e os métodos correspondentes
                         String[] nomesAlgoritmosTeste = {
                                 "Bubble Sort", "Insertion Sort", "Selection Sort",
-                                "Shell Sort", "Heap Sort", "Merge Sort"
+                                "Shell Sort", "Heap Sort", "Merge Sort",
+                                "Quick Sort", "Counting Sort", "Radix Sort", "Bucket Sort"
                         };
-
 
                         // Mapa de vetores de teste
                         Map<String, Integer[]> vetoresTeste = Map.of(
@@ -72,6 +72,28 @@ public class Main {
                                     Ordenadores.heapSort(vetorCopia);
                                 } else if (nomeAlgoritmoTeste.equals("Merge Sort")) {
                                     Ordenadores.mergeSort(vetorCopia);
+                                }else if (nomeAlgoritmoTeste.equals("Quick Sort")) {
+                                    Ordenadores.quickSort(vetorCopia, 0, vetorCopia.length - 1);
+                                }else if (nomeAlgoritmoTeste.equals("Counting Sort")) {
+                                    // Conversão para int[] e teste do Counting Sort
+                                    int[] arrayCountingSort = Arrays.stream(vetorCopia).mapToInt(Integer::intValue).toArray();
+                                    Ordenadores.countingSort(arrayCountingSort);
+                                    writerTeste.write("Vetor ordenado: " + Arrays.toString(arrayCountingSort) + "\n\n");
+                                    continue;
+                                } else if (nomeAlgoritmoTeste.equals("Radix Sort")) {
+                                    // Conversão para int[] e teste do Radix Sort
+                                    int[] arrayRadixSort = Arrays.stream(vetorCopia).mapToInt(Integer::intValue).toArray();
+                                    Ordenadores.radixSort(arrayRadixSort);
+                                    writerTeste.write("Vetor ordenado: " + Arrays.toString(arrayRadixSort) + "\n\n");
+                                    continue;
+                                } else if (nomeAlgoritmoTeste.equals("Bucket Sort")) {
+                                    // Conversão para Float[] e teste do Bucket Sort
+                                    Float[] arrayBucketSort = new Random().ints(tamanho, 0, 100)
+                                            .mapToObj(i -> i / 100.0f)
+                                            .toArray(Float[]::new);
+                                    Ordenadores.bucketSort(arrayBucketSort);
+                                    writerTeste.write("Vetor ordenado: " + Arrays.toString(arrayBucketSort) + "\n\n");
+                                    continue;
                                 }
 
                                 // Grava o vetor ordenado no arquivo
@@ -89,10 +111,10 @@ public class Main {
                 for (String algoritmo : nomesAlgoritmos) {
                     for (int exec = 0; exec < numExecucoes; exec++) {
                         // Testar com arrays de diferentes tipos
-                        testarERegistrar(writer, algoritmo, "Crescente", Arrays.copyOf(crescente, crescente.length));
-                        testarERegistrar(writer, algoritmo, "Decrescente", Arrays.copyOf(decrescente, decrescente.length));
+                        //testarERegistrar(writer, algoritmo, "Crescente", Arrays.copyOf(crescente, crescente.length));
+                        //testarERegistrar(writer, algoritmo, "Decrescente", Arrays.copyOf(decrescente, decrescente.length));
                         testarERegistrar(writer, algoritmo, "Aleatorio", Arrays.copyOf(aleatorio, aleatorio.length));
-                        testarERegistrar(writer, algoritmo, "Repetido", Arrays.copyOf(repetidos, repetidos.length));
+                        //testarERegistrar(writer, algoritmo, "Repetido", Arrays.copyOf(repetidos, repetidos.length));
 
                     }
                 }
@@ -109,18 +131,40 @@ public class Main {
         long tempoInicio = System.nanoTime();
 
         // Executar o algoritmo de ordenação
-        if (algoritmo.equals("Bubble Sort")) {
-            Ordenadores.bubbleSort(array);
-        } else if (algoritmo.equals("Insertion Sort")) {
-            Ordenadores.insertionSort(array);
-        } else if (algoritmo.equals("Selection Sort")) {
-            Ordenadores.selectionSort(array);
-        } else if (algoritmo.equals("Shell Sort")) {
-            Ordenadores.shellSort(array);
+        if (algoritmo.equals("Counting Sort")) {
+            // Converter para int[] e executar Counting Sort
+            int[] intArray = Arrays.stream(array).mapToInt(Integer::intValue).toArray();
+            Ordenadores.countingSort(intArray);
+            // Converter de volta para Integer[] para compatibilidade com a saída
+            array = Arrays.stream(intArray).boxed().toArray(Integer[]::new);
+        } else if (algoritmo.equals("Radix Sort")) {
+            // Converter para int[] e executar Radix Sort
+            int[] intArray = Arrays.stream(array).mapToInt(Integer::intValue).toArray();
+            Ordenadores.radixSort(intArray);
+            // Converter de volta para Integer[] para compatibilidade com a saída
+            array = Arrays.stream(intArray).boxed().toArray(Integer[]::new);
+        } else if (algoritmo.equals("Bucket Sort")) {
+            // Gerar um array de Float[] e executar Bucket Sort
+            Float[] arrayBucketSort = new Random().ints(array.length, 0, 100)
+                    .mapToObj(i -> i / 100.0f)
+                    .toArray(Float[]::new);
+            Ordenadores.bucketSort(arrayBucketSort);
+            // Converter de volta para Integer[] para compatibilidade com a saída
+            array = Arrays.stream(arrayBucketSort).map(f -> (int) (f * 100)).toArray(Integer[]::new);
+        } else if (algoritmo.equals("Quick Sort")) {
+            Ordenadores.quickSort(array, 0, array.length - 1);
         } else if (algoritmo.equals("Heap Sort")) {
             Ordenadores.heapSort(array);
         } else if (algoritmo.equals("Merge Sort")) {
             Ordenadores.mergeSort(array);
+        } else if (algoritmo.equals("Shell Sort")) {
+            Ordenadores.shellSort(array);
+        } else if (algoritmo.equals("Selection Sort")) {
+            Ordenadores.selectionSort(array);
+        } else if (algoritmo.equals("Insertion Sort")) {
+            Ordenadores.insertionSort(array);
+        } else if (algoritmo.equals("Bubble Sort")) {
+            Ordenadores.bubbleSort(array);
         }
 
         long tempoFim = System.nanoTime();

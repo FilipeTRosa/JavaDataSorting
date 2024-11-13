@@ -1,0 +1,108 @@
+
+--- Teste de Bubble Sort ---
+Tipo de vetor: Crescente
+Vetor original: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Vetor ordenado: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+Tipo de vetor: Decrescente
+Vetor original: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+Vetor ordenado: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+Tipo de vetor: Aleatorio
+Vetor original: [7, 0, 9, 9, 0, 4, 3, 4, 7, 4]
+Vetor ordenado: [0, 0, 3, 4, 4, 4, 7, 7, 9, 9]
+
+Tipo de vetor: Repetidos
+Vetor original: [11, 2, 2, 2, 98, 2, 67, 56, 89, 2]
+Vetor ordenado: [2, 2, 2, 2, 2, 11, 56, 67, 89, 98]
+
+
+--- Teste de Insertion Sort ---
+Tipo de vetor: Crescente
+Vetor original: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Vetor ordenado: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+Tipo de vetor: Decrescente
+Vetor original: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+Vetor ordenado: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+Tipo de vetor: Aleatorio
+Vetor original: [7, 0, 9, 9, 0, 4, 3, 4, 7, 4]
+Vetor ordenado: [0, 0, 3, 4, 4, 4, 7, 7, 9, 9]
+
+Tipo de vetor: Repetidos
+Vetor original: [11, 2, 2, 2, 98, 2, 67, 56, 89, 2]
+Vetor ordenado: [2, 2, 2, 2, 2, 11, 56, 67, 89, 98]
+
+
+--- Teste de Selection Sort ---
+Tipo de vetor: Crescente
+Vetor original: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Vetor ordenado: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+Tipo de vetor: Decrescente
+Vetor original: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+Vetor ordenado: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+Tipo de vetor: Aleatorio
+Vetor original: [7, 0, 9, 9, 0, 4, 3, 4, 7, 4]
+Vetor ordenado: [0, 0, 3, 4, 4, 4, 7, 7, 9, 9]
+
+Tipo de vetor: Repetidos
+Vetor original: [11, 2, 2, 2, 98, 2, 67, 56, 89, 2]
+Vetor ordenado: [2, 2, 2, 2, 2, 11, 56, 67, 89, 98]
+
+
+--- Teste de Shell Sort ---
+Tipo de vetor: Crescente
+Vetor original: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Vetor ordenado: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+Tipo de vetor: Decrescente
+Vetor original: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+Vetor ordenado: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+Tipo de vetor: Aleatorio
+Vetor original: [7, 0, 9, 9, 0, 4, 3, 4, 7, 4]
+Vetor ordenado: [0, 0, 3, 4, 4, 4, 7, 7, 9, 9]
+
+Tipo de vetor: Repetidos
+Vetor original: [11, 2, 2, 2, 98, 2, 67, 56, 89, 2]
+Vetor ordenado: [2, 2, 2, 2, 2, 11, 56, 67, 89, 98]
+
+
+--- Teste de Heap Sort ---
+Tipo de vetor: Crescente
+Vetor original: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Vetor ordenado: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+Tipo de vetor: Decrescente
+Vetor original: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+Vetor ordenado: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+Tipo de vetor: Aleatorio
+Vetor original: [7, 0, 9, 9, 0, 4, 3, 4, 7, 4]
+Vetor ordenado: [0, 0, 3, 4, 4, 4, 7, 7, 9, 9]
+
+Tipo de vetor: Repetidos
+Vetor original: [11, 2, 2, 2, 98, 2, 67, 56, 89, 2]
+Vetor ordenado: [2, 2, 2, 2, 2, 11, 56, 67, 89, 98]
+
+
+--- Teste de Merge Sort ---
+Tipo de vetor: Crescente
+Vetor original: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Vetor ordenado: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+Tipo de vetor: Decrescente
+Vetor original: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+Vetor ordenado: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+Tipo de vetor: Aleatorio
+Vetor original: [7, 0, 9, 9, 0, 4, 3, 4, 7, 4]
+Vetor ordenado: [0, 0, 3, 4, 4, 4, 7, 7, 9, 9]
+
+Tipo de vetor: Repetidos
+Vetor original: [11, 2, 2, 2, 98, 2, 67, 56, 89, 2]
+Vetor ordenado: [2, 2, 2, 2, 2, 11, 56, 67, 89, 98]
+
