@@ -1,0 +1,11 @@
+Algoritmo,Tipo de Vetor,Tamanho,Tempo (ns)
+Bubble Sort,Aleatorio,1000000,11196204002900
+Insertion Sort,Aleatorio,1000000,7081789461500
+Selection Sort,Aleatorio,1000000,4083240006200
+Shell Sort,Aleatorio,1000000,1454318300
+Heap Sort,Aleatorio,1000000,862440600
+Merge Sort,Aleatorio,1000000,426682900
+Quick Sort,Aleatorio,1000000,357066300
+Counting Sort,Aleatorio,1000000,89014800
+Radix Sort,Aleatorio,1000000,98731000
+Bucket Sort,Aleatorio,1000000,179302500

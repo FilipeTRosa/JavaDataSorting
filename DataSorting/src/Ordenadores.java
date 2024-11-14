@@ -6,7 +6,7 @@ import java.util.Collections;
 
 public class Ordenadores {
     // BubbleSort
-    public static <T extends Comparable<T>> void bubbleSort(T[] array) {
+    public static <T extends Comparable<T>> void bubbleSort(T[] array) { //cormen
         for (int i = 0; i < array.length - 1; i++) {
             for (int j = 0; j < array.length - i - 1; j++) {
                 if (array[j].compareTo(array[j + 1]) > 0) {
@@ -19,20 +19,20 @@ public class Ordenadores {
     }
 
     // InsertionSort
-    public static <T extends Comparable<T>> void insertionSort(T[] array) {
+    public static <T extends Comparable<T>> void insertionSort(T[] array) { //cormen
         for (int i = 1; i < array.length; i++) {
-            T key = array[i];
+            T chave = array[i];
             int j = i - 1;
-            while (j >= 0 && array[j].compareTo(key) > 0) {
+            while (j >= 0 && array[j].compareTo(chave) > 0) {
                 array[j + 1] = array[j];
                 j--;
             }
-            array[j + 1] = key;
+            array[j + 1] = chave;
         }
     }
 
     // SelectionSort
-    public static <T extends Comparable<T>> void selectionSort(T[] array) {
+    public static <T extends Comparable<T>> void selectionSort(T[] array) { //ziviani
         for (int i = 0; i < array.length - 1; i++) {
             int minIndex = i;
             for (int j = i + 1; j < array.length; j++) {
@@ -226,7 +226,7 @@ public class Ordenadores {
 
         // Ordenação individual dos buckets
         for (ArrayList<Float> bucket : buckets) {
-            Collections.sort(bucket);
+            Collections.sort(bucket); //chamada para ordenação
         }
 
         // União dos elementos dos buckets no array original

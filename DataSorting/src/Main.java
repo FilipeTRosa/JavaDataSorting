@@ -5,9 +5,9 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        // Tamanhos dos arrays para teste
-        int[] tamanhos = {10};
-        int numExecucoes = 1;
+        // Tamanhos dos arrays
+        int[] tamanhos = {10,100,1000};
+        int numExecucoes = 30;
 
         // Nomes dos algoritmos de ordenação
         String[] nomesAlgoritmos = {"Bubble Sort", "Insertion Sort", "Selection Sort",
@@ -16,23 +16,23 @@ public class Main {
 
         // Criar o arquivo CSV para os resultados
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("resultados.csv"))) {
-            // Cabeçalho do arquivo CSV
+            // Cabeçalho do  CSV
             writer.write("Algoritmo,Tipo de Vetor,Tamanho,Tempo (ns)\n");
 
-            // Execução dos testes para cada tamanho de array
+            // Execução dos testes
             for (int tamanho : tamanhos) {
                 System.out.println("Testando com array de tamanho " + tamanho);
 
-                // Geração dos arrays de teste
+                // Geração dos arrays
                 Integer[] crescente = gerarArrayCrescente(tamanho);
                 Integer[] decrescente = gerarArrayDecrescente(tamanho);
                 Integer[] aleatorio = gerarArrayAleatorio(tamanho);
                 Integer[] repetidos = gerarArrayRepetidos(tamanho);
 
-                // ########### TERMINA TESTE DE CORRETUDE ################ //
+                // ########### COMECA TESTE DE CORRETUDE ################ //
                 if (tamanho == 10) { // Executa este bloco somente quando o tamanho é 10
                     try (BufferedWriter writerTeste = new BufferedWriter(new FileWriter("resultados_ordenacao.txt"))) {
-                        // Nome dos algoritmos e os métodos correspondentes
+                        // Nome dos algoritmos e os métodos
                         String[] nomesAlgoritmosTeste = {
                                 "Bubble Sort", "Insertion Sort", "Selection Sort",
                                 "Shell Sort", "Heap Sort", "Merge Sort",
@@ -48,7 +48,7 @@ public class Main {
                         );
 
                         // Executar cada algoritmo para cada vetor e gravar o resultado no arquivo
-                        for (String nomeAlgoritmoTeste : nomesAlgoritmos) {
+                        for (String nomeAlgoritmoTeste : nomesAlgoritmosTeste) {
                             writerTeste.write("\n--- Teste de " + nomeAlgoritmoTeste + " ---\n");
 
                             for (String tipoVetor : vetoresTeste.keySet()) {
@@ -210,7 +210,7 @@ public class Main {
         Integer[] array = new Integer[tamanho];
         Random rand = new Random();
 
-        // Definir uma proporção de elementos repetidos (ex: 50% repetidos)
+        //  proporção de elementos repetidos 50% repetidos
         int numRepetidos = tamanho / 2;
         int valorRepetido = rand.nextInt(10); // Valor que será repetido em parte do array
 
@@ -221,7 +221,7 @@ public class Main {
 
         // Preencher o restante do array com valores aleatórios
         for (int i = numRepetidos; i < tamanho; i++) {
-            array[i] = rand.nextInt(100); // Valores aleatórios, limite de 0 a 99 para diversidade
+            array[i] = rand.nextInt(100);
         }
 
         // Embaralhar o array para distribuir os elementos repetidos de forma aleatória
